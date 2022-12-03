@@ -29,5 +29,15 @@ public class ProductosSvcImpl implements ProductosSvcInt{
 	public Optional<Productos> getProductById(int idProduct) {
 		return productosData.findById(idProduct);
 	}
+
+	@Override
+	public int saveProduct(Productos p) {
+		int resp = 0;
+		Productos prod = productosData.save(p);
+		if(!prod.equals(null)) {
+			resp = 1;
+		}
+		return resp;
+	}
 	
 }
